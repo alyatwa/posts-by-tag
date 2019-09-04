@@ -41,6 +41,7 @@ class Posts_By_Tag_Util {
 				'order_by'                   => 'date',
 				'order'                      => 'desc',
 				'author'                     => false,
+			        'category'                   => false,
 				'date'                       => false,
 				'content'                    => false,
 				'content_filter'             => true,
@@ -94,7 +95,7 @@ class Posts_By_Tag_Util {
 						$onclick_attr = '';
 					}
 
-					$output .= '<li class="posts-by-tag-item ' . implode( ' ', $tag_post_tags ) . '" id="posts-by-tag-item-' . $tag_post->ID . '">';
+					$output .= '<li class="posts-by-tag-item ' . implode( ' ', $tag_post_tags ) . '" id="posts-by-tag-item-' . $tag_post->ID . '"><div>';
 
 					if ( $thumbnail ) {
 						if ( has_post_thumbnail( $tag_post->ID ) ) {
@@ -105,18 +106,18 @@ class Posts_By_Tag_Util {
 							}
 							$output .=  '<a class="thumb" href="' . $permalink . '" title="' . get_the_title( $tag_post->ID ) . '" ' . $onclick_attr . ' >' .
 								get_the_post_thumbnail( $tag_post->ID, $t_size ) .
-								'</a>';
+								'</div></a>';
 						} else {
 							if ( get_post_meta( $tag_post->ID, 'post_thumbnail', true ) != '' ) {
 								$output .=  '<a class="thumb" href="' . $permalink . '" title="' . get_the_title( $tag_post->ID ) . '" ' . $onclick_attr . '>' .
 									'<img src="' . esc_url( get_post_meta( $tag_post->ID, 'post_thumbnail', true ) ) . '" alt="' . get_the_title( $tag_post->ID ) . '" >' .
-									'</a>';
+									'</div></a>';
 							}
 						}
 					}
 
 					// add permalink
-					$output .= '<a class = "posts-by-tag-item-title" href="' . $permalink . '"';
+					$output .= '<div class="text-cont-tag"><a class = "posts-by-tag-item-title" href="' . $permalink . '"';
 
 					if ( $link_target != '' ) {
 						$output .= ' target = "' . $link_target . '"';
@@ -138,10 +139,14 @@ class Posts_By_Tag_Util {
 
 						$output .= $post_content;
 					}
-
 					if ( $author ) {
 						$output .= ' <small>' . __( 'Posted by: ', 'posts-by-tag' );
 						$output .=  get_the_author_meta( 'display_name', $tag_post->post_author ) . '</small>';
+					}
+					
+					if ( $category ) {
+						$output .= ' <p class="posts-by-tag-category"><a href="'.esc_url( get_category_link($tag_post->post_category)).'" >';
+						$output .=  get_the_category($tag_post->post_category ) . '</a></p>';
 					}
 
 					if ( $date ) {
@@ -160,7 +165,7 @@ class Posts_By_Tag_Util {
 						else
 							$output .= get_the_excerpt();
 					}
-					$output .=  '</li>';
+					$output .=  '</div></li>';
 				}
 
 				$output .=  '</ul>';

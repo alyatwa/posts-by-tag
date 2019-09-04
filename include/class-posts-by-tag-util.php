@@ -146,8 +146,8 @@ class Posts_By_Tag_Util {
 					
 					if ( $category ) {
 						$output .= ' <p class="posts-by-tag-category"><a href="'.esc_url( get_category_link($tag_post->post_category[0])).'" >';
-						//$output .=  get_the_category($tag_post->post_category ) . '</a></p>';
-                        $output .=  get_the_category($tag_post->post_category)[0]->name . '</a></p>';
+						$output .=  get_cat_name($tag_post->post_category[0]) . '</a></p>';
+                        //$output .=  get_the_category($tag_post->post_category)[0]->name . '</a></p>';
 					}
 
 					if ( $date ) {

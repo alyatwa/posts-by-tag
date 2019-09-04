@@ -85,7 +85,7 @@ You can checkout [some example PHP code](http://sudarmuthu.com/wordpress/posts-b
 
 You can also include the following shortcode in your blog posts or WordPress page, to display the posts from the set of tags.
 
-`posts-by-tag tags = "tag1, tag2"]`
+`[posts-by-tag tags = "tag1, tag2"]`
 
 All the parameters that are accepted by the template tag can also be used in the shortcode.
 

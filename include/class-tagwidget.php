@@ -122,6 +122,7 @@ class TagWidget extends WP_Widget {
 		$instance['thumbnail_size_width']  = intval( $new_instance['thumbnail_size_width'] );
 		$instance['thumbnail_size_height'] = intval( $new_instance['thumbnail_size_height'] );
 		$instance['author']                = (bool) $new_instance['author'];
+		$instance['category']              = (bool) $new_instance['category'];
 		$instance['date']                  = (bool) $new_instance['date'];
 		$instance['excerpt']               = (bool) $new_instance['excerpt'];
 		$instance['content']               = (bool) $new_instance['content'];
@@ -165,6 +166,7 @@ class TagWidget extends WP_Widget {
 			'thumbnail_size_width'  => '100',
 			'thumbnail_size_height' => '100',
 			'author'                => false,
+			'category'              => false,
 			'date'                  => false,
 			'excerpt'               => false,
 			'content'               => false,
@@ -192,6 +194,7 @@ class TagWidget extends WP_Widget {
 		$thumbnail_size_width  = intval( $instance['thumbnail_size_width'] );
 		$thumbnail_size_height = intval( $instance['thumbnail_size_height'] );
 		$author                = (bool) $instance['author'];
+		$category              = (bool) $instance['category'];
 		$date                  = (bool) $instance['date'];
 		$excerpt               = (bool) $instance['excerpt'];
 		$content               = (bool) $instance['content'];
@@ -297,6 +300,12 @@ class TagWidget extends WP_Widget {
             <label for="<?php echo $this->get_field_id( 'author' ); ?>">
             <input type ="checkbox" class ="checkbox" id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" value ="true" <?php checked( $author, true ); ?> /></label>
             <?php _e( 'Show author name' , 'posts-by-tag' ); ?>
+        </p>
+
+         <p>
+            <label for="<?php echo $this->get_field_id( 'category' ); ?>">
+            <input type ="checkbox" class ="checkbox" id="<?php echo $this->get_field_id( 'category' ); ?>" name="<?php echo $this->get_field_name( 'category' ); ?>" value ="true" <?php checked( $category, true ); ?> /></label>
+            <?php _e( 'Show category name' , 'posts-by-tag' ); ?>
         </p>
 
         <p>

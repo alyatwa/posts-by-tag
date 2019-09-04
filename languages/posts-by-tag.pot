@@ -105,6 +105,10 @@ msgid "Show author name"
 msgstr ""
 
 #: include/class-tagwidget.php:305
+msgid "Show category name"
+msgstr ""
+
+#: include/class-tagwidget.php:305
 msgid "Show post date"
 msgstr ""
 

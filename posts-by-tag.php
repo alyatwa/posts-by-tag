@@ -66,6 +66,7 @@ class Posts_By_Tag {
 		'content_filter',
 		'thumbnail',
 		'author',
+		'category',
 		'date',
 		'tag_links',
 	);
@@ -298,6 +299,7 @@ class Posts_By_Tag {
 				'order_by'                   => 'date',
 				'order'                      => 'desc',
 				'author'                     => false,
+			        'category'                   => false,
 				'date'                       => false,
 				'tag_links'                  => false,
 				'link_target'                => '',
